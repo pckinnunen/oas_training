@@ -162,4 +162,8 @@ cython_debug/
 #.idea/
 
 # Custom
+# Folder with all OAS data
 oas_data/
+#CSVs with sampled sequences
+heavy_seqs.csv
+light_seqs.csv
