@@ -21,7 +21,7 @@ while len(light_seqs)<=N_LIGHT and i<=len(light_files):
         sep=',',
         skiprows = 1
     )
-    light_seqs.extend(df['sequence'].to_list())
+    light_seqs.extend(df['sequence_alignment_aa'].to_list())
 
     i+=1
 print(len(light_seqs))
@@ -32,7 +32,7 @@ light_df = pd.DataFrame.from_dict(
     }
 )
 light_df.to_csv('./light_seqs.csv')
-
+light_df.iloc[:10000].to_csv('./light_seqs_small.csv')
 heavy_seqs = []
 
 i = 0
@@ -43,7 +43,7 @@ while len(heavy_seqs)<=N_HEAVY and i<=len(heavy_files):
         sep=',',
         skiprows = 1
     )
-    heavy_seqs.extend(df['sequence'].to_list())
+    heavy_seqs.extend(df['sequence_alignment_aa'].to_list())
 
     i+=1
 print(len(heavy_seqs))
@@ -54,3 +54,4 @@ heavy_df = pd.DataFrame.from_dict(
     }
 )
 heavy_df.to_csv('./heavy_seqs.csv')
+heavy_df.iloc[:10000,:].to_csv('./heavy_seqs_small.csv')
